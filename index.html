@@ -183,11 +183,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
         
     <style>
-        @import url('./fonts/javassoul/style.css');
-        @import url('./fonts/laraboyok/style.css');
-        @import url('./fonts/brittany_signature/style.css'); /* Ubah nama file di sini menjadi style.css */
-        @import url('./fonts/photograph_signature/style.css'); /* Pastikan nama file di dalam folder ini benar fonts.css atau style.css */
-        @import url('./fonts/heatwood/style.css'); /* Pastikan file di dalam folder heatwood bernama Heatwood.css */
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+        
+        /* Menggunakan link asli agar langsung terbaca di Vercel */
+        @import url('https://satumomen.com/fonts/javassoul/style.css');
+        @import url('https://satumomen.com/fonts/laraboyok/style.css');
+        @import url('https://satumomen.com/fonts/brittany_signature/BrittanySignature.css');
+        @import url('https://satumomen.com/fonts/photograph_signature/fonts.css');
+        @import url('https://satumomen.com/fonts/heatwood/Heatwood.css');
+
+        :root {
+            /* ... (kode warna dll biarkan saja seperti aslinya) ... */
 
         .font-brittany-signature {
             font-family: 'Brittany Signature';
