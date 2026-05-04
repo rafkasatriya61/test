@@ -71,14 +71,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
 
     <link rel="preload" as="style" href="https://assets.satumomen.com/build/assets/bootstrap-vCaDZZbr.css" /><link rel="preload" as="style" href="https://assets.satumomen.com/build/assets/themesv2-DZZF_N8v.css" /><link rel="stylesheet" href="https://assets.satumomen.com/build/assets/bootstrap-vCaDZZbr.css" /><link rel="stylesheet" href="https://assets.satumomen.com/build/assets/themesv2-DZZF_N8v.css" />
-        <style>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('./fonts/javassoul/style.css');
-@import url('./fonts/laraboyok/style.css');
-@import url('./fonts/brittany_signature/style.css'); 
-@import url('./fonts/photograph_signature/style.css'); 
-@import url('./fonts/heatwood/style.css'); /* <-- Ubah styel.css menjadi style.css di sini */
-:root {
+        
+        /* 1. Font yang nama foldernya AMAN (tanpa spasi) tetap pakai import */
+        @import url('./fonts/javassoul/style.css');
+        @import url('./fonts/laraboyok/style.css');
+        @import url('./fonts/heatwood/style.css');
+
+        /* 2. CARA TEMBAK LANGSUNG: Untuk folder yang pakai spasi */
+        @font-face {
+            font-family: 'Brittany Signature';
+            src: url('./fonts/brittany%20signature/BrittanySignature.woff2') format('woff2'),
+                 url('./fonts/brittany%20signature/BrittanySignature.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Photograph Signature';
+            src: url('./fonts/photograph%20signature/PhotographSignature.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Deklarasi Class Font */
+        .font-brittany-signature {
+            font-family: 'Brittany Signature', sans-serif;
+            line-height: 1.6 !important;
+        }
+        .font-photograph-signature {
+            font-family: 'Photograph Signature', sans-serif;
+            line-height: 1.6 !important;
+        }
+        .font-heatwood {
+            font-family: 'Heatwood', sans-serif;
+            line-height: 3 !important;
+        }
+        
+        #YTMusic {display: block}
+
+  :root {
     --inv-bg: #f7f7f7;
     --inv-base: #49312b;
     --inv-accent: #b88821;
