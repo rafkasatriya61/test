@@ -1392,5 +1392,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         });
     </script>
+        // A. Munculkan langsung di layar (Efek instan)
+        if(document.getElementById('teksKosong')) document.getElementById('teksKosong').remove();
+        const komentarBaru = `
+            <div class="mb-3 border-bottom pb-2 animate__animated animate__fadeIn">
+                <div class="d-flex align-items-center mb-1">
+                    <i class="ph-fill ph-chat-circle-text mr-2" style="font-size: 20px; color: var(--inv-accent);"></i>
+                    <strong style="color: #49312b; font-size: 15px;">${namaTamu}</strong>
+                    <span class="badge badge-${kehadiran === 'Hadir' ? 'success' : 'secondary'} ml-2" style="font-size: 10px;">${kehadiran}</span>
+                </div>
+                <p class="mb-0 small text-muted pl-4" style="line-height: 1.6;">${ucapan}</p>
+            </div>
+        `;
+        commentsList.insertAdjacentHTML('afterbegin', komentarBaru);
+        totalKomentar.innerText = parseInt(totalKomentar.innerText) + 1;
+
+
+        // B. Kirim ke Database Google Sheets (Berjalan di latar belakang)
+        if(GOOGLE_SCRIPT_URL !== 'ISI_DENGAN_URL_WEB_APP_GOOGLE_SHEETS_NANTI') {
+            const urlKirim = `${GOOGLE_SCRIPT_URL}?action=save&nama=${encodeURIComponent(namaTamu)}&ucapan=${encodeURIComponent(ucapan)}&kehadiran=${encodeURIComponent(kehadiran)}`;
+            fetch(urlKirim, { mode: 'no-cors' }).catch(err => console.log(err));
+        }
+
+
+        // C. Buka WhatsApp Penganti 
+        const teksWA = `${ucapan}\ndari+saya${namaTamu} \n yang (${kehadiran})+pada+hari+tesebut`;
+        window.open(`https://api.whatsapp.com/send?phone=${NOMOR_WA_PENGANTIN}&text=${teksWA}`, '_blank');
+        
+        // Bersihkan form
+        document.getElementById('rsvpForm').reset();
+    });
+</script>
 </body>
 </html>
