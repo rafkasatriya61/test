@@ -944,27 +944,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         </div>
                                     </li>
                                     <li class="satumomen_slide">
-                                        <div class="container-mobile" style="background-image: url(https://satumomen.com/themes/art-blue-java/bg.webp);">
-                                            <div class="frame">
-                                              <img class="frame-tl animate__animated animate__fadeInTopLeft animate__slower" src="https://satumomen.com/themes/art-blue-java/tl.webp" alt="frame">
-                                              <img class="frame-tr animate__animated animate__fadeInTopRight animate__slower" src="https://satumomen.com/themes/art-blue-java/tr.webp" alt="frame">
-                                              <div class="frame-tl animate__animated animate__fadeInTopLeft animate__slow"><div class="animate-left" style="transform: translate(-5%, 145%);"><img class="w-100" src="https://satumomen.com/themes/art-blue-java/tl-2.webp" alt="frame" style="transform-origin: bottom left; animation-delay: 120ms;"></div></div>
-                                              <div class="frame-tr animate__animated animate__fadeInTopRight animate__slow"><div class="animate-right" style="transform: translate(5%, 145%);"><img class="w-100" src="https://satumomen.com/themes/art-blue-java/tr-2.webp" alt="frame" style="transform-origin: bottom right; animation-delay: 120ms;"></div></div>
-                                              <img class="frame-br w-100 animate__animated animate__fadeInUp animate__slower" src="https://satumomen.com/themes/art-blue-java/bm.webp" alt="frame" style="animation-delay: 1s;">
-                                              <img class="frame-bl animate__animated animate__fadeInLeft animate__slower" src="https://satumomen.com/themes/art-blue-java/bl-2.webp" alt="frame">
-                                              <img class="frame-br animate__animated animate__fadeInRight animate__slower" src="https://satumomen.com/themes/art-blue-java/br-2.webp" alt="frame">
-                                            </div>
+                                     <div class="container-mobile" style="background-color: #e2e8f0; padding-top: 40px; overflow-y: auto;">
+                                      <div class="d-flex justify-content-start flex-column align-items-center px-4" style="min-height:100%; padding-bottom: 50px;">
+                                           <div class="editable font-latin color-accent mb-4 text-center animate__animated animate__fadeInDown" style="font-size:40px;">Berikan Ucapan & Doa</div>
 
-                                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                                                <div style="width:100%;" class="text-center px-4">
-                                                    <div class="editable font-latin color-accent h4 mb-4 animate__animated animate__fadeInDown animate__slower" style="font-size:28.8px;">RSVP & Ucapan</div> 
-                                                    <div class="editable mb-4 animate__animated animate__fadeInUp animate__slower" style="font-size:14.4px;">Kehadiran serta doa restu Bapak/Ibu/Saudara/i sangat berarti bagi kami. Silakan konfirmasi kehadiran Anda melalui tombol di bawah ini.</div> 
-                                                    
-                                                    <a href="https://api.whatsapp.com/send?phone=6285178399532&text=Halo%20Didik%20%26%20Diah,%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20acara%20pernikahan%20kalian..." target="_blank" class="btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size:18px; text-decoration:none; padding: 12px 24px; background-color: #b88821; border: none;">Konfirmasi via WhatsApp</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                           <div class="w-100 bg-white p-4 rounded shadow-sm animate__animated animate__fadeInUp" style="max-width: 400px;">
+                                               <h6 class="text-center font-weight-bold mb-3" style="color: #49312b;"><span id="totalKomentar">0</span> Comments</h6>
+                
+                                               <form id="rsvpForm">
+                                                   <div class="form-group mb-3">
+                                                       <textarea id="pesanUcapan" class="form-control" rows="3" placeholder="Ucapan & Doa..." required style="background-color: #f8f9fa; border: 1px solid #ced4da;"></textarea>
+                                                   </div>
+                                                   <div class="form-group mb-3">
+                                                       <select id="statusKehadiran" class="form-control" required style="background-color: #f8f9fa; border: 1px solid #ced4da; color: #6c757d;">
+                                                           <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                                                           <option value="Hadir">Hadir</option>
+                                                           <option value="Tidak Hadir">Tidak Hadir</option>
+                                                       </select>
+                                                   </div>
+                                                   <button type="submit" class="btn btn-block text-white font-weight-bold" style="background-color: #4b4b4b; border-radius: 4px;">➤ Kirim</button>
+                                               </form>
+                                               <hr class="my-4">
+                
+                                               <div id="commentsList" style="max-height: 350px; overflow-y: auto; text-align: left; padding-right: 5px;">
+                                                   <div class="text-center small text-muted" id="teksKosong">Memuat ucapan...</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </li>
+
                                     <li class="satumomen_slide">
                                         <div class="container-mobile " style="background-image: url(https://satumomen.com/themes/art-blue-java/bg.webp); ;">
                                             <div class="frame">
