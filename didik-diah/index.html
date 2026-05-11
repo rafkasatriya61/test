@@ -1392,6 +1392,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         });
     </script>
+    <script type="text/javascript">
+    // Nanti ganti dengan URL Web App dari Google Sheets kamu di Tahap 2
+    const GOOGLE_SCRIPT_URL = 'ISI_DENGAN_URL_WEB_APP_GOOGLE_SHEETS_NANTI'; 
+    const NOMOR_WA_PENGANTIN = '6285178399532'; // Ganti dengan nomor WhatsApp kamu
+
+    const commentsList = document.getElementById('commentsList');
+    const totalKomentar = document.getElementById('totalKomentar');
+
+    // FUNGSI 1: MENGAMBIL NAMA DARI LINK
+    function getNamaTamu() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let nama = urlParams.get('to');
+        return nama ? nama : 'Tamu Spesial';
+    }
+
+    // FUNGSI 2: MEMUAT DATA DARI DATABASE SAAT HALAMAN DIBUKA
+    window.addEventListener('DOMContentLoaded', function() {
+        if(GOOGLE_SCRIPT_URL !== 'ISI_DENGAN_URL_WEB_APP_GOOGLE_SHEETS_NANTI') {
+            fetch(GOOGLE_SCRIPT_URL)
+            .then(res => res.json())
+            .then(data => {
+                if(data.length > 0) {
+                    commentsList.innerHTML = '';
+                    totalKomentar.innerText = data.length;
+                    data.reverse().forEach(item => { // Balik agar yang terbaru di atas
+                        commentsList.innerHTML += `
+                            <div class="mb-3 border-bottom pb-2">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="ph-fill ph-chat-circle-text mr-2" style="font-size: 20px; color: var(--inv-accent);"></i>
+                                    <strong style="color: #49312b; font-size: 15px;">${item.nama}</strong>
+                                    <span class="badge badge-${item.kehadiran === 'Hadir' ? 'success' : 'secondary'} ml-2" style="font-size: 10px;">${item.kehadiran}</span>
+                                </div>
+                                <p class="mb-0 small text-muted pl-4" style="line-height: 1.6;">${item.ucapan}</p>
+                            </div>
+                        `;
+                    });
+                } else {
+                    document.getElementById('teksKosong').innerText = "Belum ada ucapan. Jadilah yang pertama!";
+                }
+            }).catch(err => console.log('Gagal memuat komentar.'));
+        }
+    });
+
+    // FUNGSI 3: KETIKA TOMBOL KIRIM DIKLIK
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah web reload
+
+        const namaTamu = getNamaTamu();
+        const ucapan = document.getElementById('pesanUcapan').value;
+        const kehadiran = document.getElementById('statusKehadiran').value;
         // A. Munculkan langsung di layar (Efek instan)
         if(document.getElementById('teksKosong')) document.getElementById('teksKosong').remove();
         const komentarBaru = `
@@ -1421,7 +1471,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         // Bersihkan form
         document.getElementById('rsvpForm').reset();
-    });
+    }); 
 </script>
 </body>
 </html>
