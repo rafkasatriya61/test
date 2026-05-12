@@ -1459,14 +1459,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
         // B. Kirim ke Database Google Sheets (Berjalan di latar belakang)
-        if(GOOGLE_SCRIPT_URL !== 'ISI_DENGAN_URL_WEB_APP_GOOGLE_SHEETS_NANTI') {
+        if(GOOGLE_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz-AGvaJ0DtavI1egAi2JsEfgTWpzegoqEjwNe52OxKK4CPXowp3R8ZOHKw6zq-lDeZ4A/exec') {
             const urlKirim = `${GOOGLE_SCRIPT_URL}?action=save&nama=${encodeURIComponent(namaTamu)}&ucapan=${encodeURIComponent(ucapan)}&kehadiran=${encodeURIComponent(kehadiran)}`;
             fetch(urlKirim, { mode: 'no-cors' }).catch(err => console.log(err));
         }
 
 
         // C. Buka WhatsApp Penganti 
-        const teksWA = `${ucapan}\ndari+saya${namaTamu} \n yang (${kehadiran})+pada+hari+tesebut`;
+        const teksWA = `${ucapan}%0Adari+saya*${namaTamu}*+yang*${kehadiran}*+pada+hari+tesebut`;
         window.open(`https://api.whatsapp.com/send?phone=${NOMOR_WA_PENGANTIN}&text=${teksWA}`, '_blank');
         
         // Bersihkan form
